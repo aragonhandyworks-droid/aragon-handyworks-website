@@ -6,6 +6,20 @@
 .project-card.new-project-card .new-project-gallery img:first-child{grid-column:span 2;grid-row:span 2}
 .project-card.new-project-card .new-project-gallery img:nth-child(n+4){display:none}
 @media(max-width:520px){.project-card.new-project-card .new-project-gallery{aspect-ratio:1.2}}
+
+/* Clickable project gallery */
+#projects .project-card{cursor:pointer}
+#projects .project-card:focus-visible{outline:3px solid #b48a43;outline-offset:4px}
+.gallery-lightbox[hidden]{display:none!important}
+.gallery-lightbox{position:fixed;inset:0;z-index:9999;background:rgba(9,18,17,.97);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 14px 24px;box-sizing:border-box}
+.gallery-lightbox .gallery-close{position:absolute;top:12px;right:16px;background:#fff;color:#172a27;border:0;border-radius:50%;width:42px;height:42px;font-size:28px;cursor:pointer}
+.gallery-lightbox .gallery-stage{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;max-width:1100px;min-height:0;flex:1}
+.gallery-lightbox .gallery-image{max-width:calc(100% - 88px);max-height:75vh;object-fit:contain;border-radius:3px}
+.gallery-lightbox .gallery-arrow{flex:0 0 40px;width:40px;height:52px;background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.35);border-radius:5px;font-size:30px;cursor:pointer}
+.gallery-lightbox .gallery-info{text-align:center;margin-top:12px;max-width:90%;line-height:1.5}
+.gallery-lightbox .gallery-title{font-weight:700;font-size:18px}
+.gallery-lightbox .gallery-count{font-size:13px;opacity:.8}
+@media(max-width:600px){.gallery-lightbox .gallery-image{max-width:calc(100% - 72px);max-height:70vh}.gallery-lightbox .gallery-arrow{width:32px;flex-basis:32px}}
 </style></head>
 <body>
 <header class="site-header"><div class="container header-inner"><a class="brand" href="#home" aria-label="Aragon Handyworks LLC home"><img class="brand-logo" src="images/logo-mark.jpg" alt="Aragon Handyworks house and tools emblem"><span><strong>ARAGON</strong><small>HANDYWORKS LLC</small></span></a><button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button><nav id="navigation" aria-label="Main navigation"><a href="#home">Home</a><a href="#services">Services</a><a href="#projects">Our Work</a><a href="#about">About</a><a href="#areas">Service Areas</a><a href="tel:+15757704115" class="header-phone">Call (575) 770-4115</a><a class="nav-cta" href="#contact">Request an Estimate ↗</a></nav></div></header>
@@ -30,4 +44,64 @@
 <section id="about" class="section about"><div class="container about-grid"><div class="about-art"><div class="official-logo-panel"><img src="images/official-logo.jpg" alt="Aragon Handy Works LLC — Quality in the name. Trust in the relationship."><p>Quality in the name. Trust in the relationship.</p></div></div><div class="about-copy"><span class="eyebrow">ABOUT THE COMPANY</span><h2>Local roots.<br>Hands-on work.</h2><p>Aragon Handyworks LLC is a locally owned construction and property improvement business serving Taos County and neighboring communities.</p><p>We work on projects large and small—from ranch fencing and carports to concrete slabs and interior remodels. Our approach is simple: listen to what you need, explain the scope, and take pride in the finished result.</p><div class="values"><span>✓ Clear communication</span><span>✓ Thoughtful workmanship</span><span>✓ Custom project solutions</span></div><a class="btn btn-dark" href="#contact">Let's Discuss Your Project ↗</a></div></div></section>
 <section id="areas" class="areas"><div class="container areas-grid"><div><span class="eyebrow light">WHERE WE WORK</span><h2>Proudly serving<br>Northern New Mexico.</h2></div><div><p>Based in the Taos area and working throughout nearby communities. Contact us to confirm availability for your project location.</p><div class="area-tags"><span>Taos</span><span>El Prado</span><span>Ranchos de Taos</span><span>Arroyo Seco</span><span>Angel Fire</span><span>Red River</span><span>Española</span><span>Surrounding Areas</span></div></div></div></section>
 <section id="contact" class="section contact"><div class="container contact-grid"><div><span class="eyebrow">START YOUR PROJECT</span><h2>Let's build something<br>worth keeping.</h2><p>Tell us a little about your project. We'll help you figure out the next step.</p><div class="contact-tip"><strong>Prefer to call or text?</strong><p><a href="tel:+15757704115">(575) 770-4115</a><br><a href="mailto:Aragonhandyworks@gmail.com">Aragonhandyworks@gmail.com</a></p></div></div><form id="estimate-form" class="estimate-form"><div class="form-title"><h3>Request an Estimate</h3><p>Fill out the details below to email us your project inquiry.</p></div><div class="form-row"><label>Full Name <input name="name" autocomplete="name" required placeholder="Your name"></label><label>Phone Number <input name="phone" type="tel" autocomplete="tel" required placeholder="(575) 000-0000"></label></div><label>Email Address <input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label><div class="form-row"><label>Project Type <select name="type" required><option value="">Select a service</option><option>Carport / Pole Barn</option><option>Fencing / Gates</option><option>Concrete / Site Work</option><option>Roofing / Deck / Patio</option><option>Remodeling</option><option>Addition / Custom Project</option><option>Other</option></select></label><label>Project Location <input name="location" required placeholder="Town or ZIP code"></label></div><label>Tell Us About Your Project <textarea name="details" rows="5" required placeholder="Approximate dimensions, what you want built, timing, and anything else we should know..."></textarea></label><button class="btn btn-gold submit" type="submit">Prepare Estimate Request ↗</button><p class="form-disclaimer">Submitting opens your email app with your project details ready to send. Please press Send in your email app to complete your request.</p><p id="form-status" role="status" aria-live="polite"></p></form></div></section>
-</main><footer><div class="container footer-main"><div class="footer-brand"><img class="footer-logo" src="images/official-logo.jpg" alt="Aragon Handy Works LLC logo"><strong>ARAGON HANDYWORKS LLC</strong><p>Custom construction & property improvements<br>in Northern New Mexico.</p></div><div><h4>Explore</h4><a href="#services">Services</a><a href="#projects">Our Work</a><a href="#about">About Us</a></div><div><h4>Get Started</h4><a href="tel:+15757704115">(575) 770-4115</a><a href="mailto:Aragonhandyworks@gmail.com">Email Us</a><a href="#contact">Request an Estimate</a><a href="#areas">Service Areas</a></div></div><div class="container footer-bottom"><span>© <span id="year"></span> Aragon Handyworks LLC. All rights reserved.</span><span>Made for Northern New Mexico.</span></div></footer><script src="script.js"></script></body></html>
+</main><footer><div class="container footer-main"><div class="footer-brand"><img class="footer-logo" src="images/official-logo.jpg" alt="Aragon Handy Works LLC logo"><strong>ARAGON HANDYWORKS LLC</strong><p>Custom construction & property improvements<br>in Northern New Mexico.</p></div><div><h4>Explore</h4><a href="#services">Services</a><a href="#projects">Our Work</a><a href="#about">About Us</a></div><div><h4>Get Started</h4><a href="tel:+15757704115">(575) 770-4115</a><a href="mailto:Aragonhandyworks@gmail.com">Email Us</a><a href="#contact">Request an Estimate</a><a href="#areas">Service Areas</a></div></div><div class="container footer-bottom"><span>© <span id="year"></span> Aragon Handyworks LLC. All rights reserved.</span><span>Made for Northern New Mexico.</span></div></footer><div id="project-gallery-lightbox" class="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Project photo gallery" hidden><button type="button" class="gallery-close" aria-label="Close gallery">×</button><div class="gallery-stage"><button type="button" class="gallery-arrow gallery-prev" aria-label="Previous photo">‹</button><img class="gallery-image" alt=""><button type="button" class="gallery-arrow gallery-next" aria-label="Next photo">›</button></div><div class="gallery-info"><div class="gallery-title"></div><div class="gallery-count" aria-live="polite"></div></div></div>
+<script src="script.js"></script><script>
+/* Project gallery: uses existing CSS photo backgrounds and all gallery images. */
+(function(){
+  const modal=document.getElementById('project-gallery-lightbox');
+  if(!modal)return;
+  const photo=modal.querySelector('.gallery-image'),title=modal.querySelector('.gallery-title'),count=modal.querySelector('.gallery-count');
+  const close=modal.querySelector('.gallery-close');
+  let photos=[],current=0,opener=null,previousOverflow='';
+  function render(){
+    if(!photos.length)return;
+    photo.src=photos[current].src;
+    photo.alt=photos[current].alt||title.textContent+' photo '+(current+1);
+    count.textContent=(current+1)+' of '+photos.length;
+    const showArrows=photos.length>1;
+    modal.querySelector('.gallery-prev').hidden=!showArrows;
+    modal.querySelector('.gallery-next').hidden=!showArrows;
+  }
+  function move(direction){current=(current+direction+photos.length)%photos.length;render()}
+  function open(card){
+    const gallery=card.querySelector('.new-project-gallery');
+    if(gallery){photos=Array.from(gallery.querySelectorAll('img')).map(img=>({src:img.getAttribute('src'),alt:img.alt}));}
+    else{
+      const element=card.querySelector('.project-photo');
+      const background=element?getComputedStyle(element).backgroundImage:'';
+      const match=background.match(/url\(["']?(.*?)["']?\)/);
+      photos=match?[{src:match[1],alt:card.querySelector('h3')?.textContent+' project photo'}]:[];
+    }
+    if(!photos.length)return;
+    opener=card;current=0;title.textContent=card.querySelector('h3')?.textContent||'Our Work';
+    previousOverflow=document.body.style.overflow;document.body.style.overflow='hidden';
+    modal.hidden=false;render();close.focus();
+  }
+  function dismiss(){modal.hidden=true;photo.removeAttribute('src');document.body.style.overflow=previousOverflow;opener?.focus()}
+  document.querySelectorAll('#projects .project-card').forEach(card=>{
+    card.setAttribute('tabindex','0');card.setAttribute('role','button');
+    card.setAttribute('aria-label','View photos: '+(card.querySelector('h3')?.textContent||'Project'));
+    card.addEventListener('click',()=>open(card));
+    card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(card)}});
+  });
+  close.addEventListener('click',dismiss);
+  modal.querySelector('.gallery-prev').addEventListener('click',()=>move(-1));
+  modal.querySelector('.gallery-next').addEventListener('click',()=>move(1));
+  modal.addEventListener('click',e=>{if(e.target===modal)dismiss()});
+  document.addEventListener('keydown',e=>{
+    if(modal.hidden)return;
+    if(e.key==='Escape')dismiss();
+    else if(e.key==='ArrowLeft')move(-1);
+    else if(e.key==='ArrowRight')move(1);
+    else if(e.key==='Tab'){
+      const buttons=Array.from(modal.querySelectorAll('button')).filter(b=>!b.hidden);
+      const first=buttons[0],last=buttons[buttons.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+    }
+  });
+  let startX=null;
+  modal.addEventListener('touchstart',e=>{if(e.touches.length===1)startX=e.touches[0].clientX},{passive:true});
+  modal.addEventListener('touchend',e=>{if(startX===null)return;const delta=e.changedTouches[0].clientX-startX;startX=null;if(Math.abs(delta)>45&&photos.length>1)move(delta<0?1:-1)},{passive:true});
+})();
+</script></body></html>
